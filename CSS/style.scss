@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+//　変数
+
+
 * {
 	margin: 0;
 	padding: 0;
@@ -108,7 +111,6 @@ ol,ul {
 	top: 50px;
 	margin: 1.245vw 0 0 1.245vw;
 	transition: 1.0s cubic-bezier(0.36, 0, 0.66, -0.56);
-	/* filter: brightness(5000%); */
 }
 
 // header
@@ -404,136 +406,151 @@ copy_standard {
 }
 
 // キービジュアル
-/* Swiperスライダー全体 */
-.swiper {
-  pointer-events: none;
-}
-
-/* Swiper内のスライドコンテナ */
-.swiper-wrapper {
-  width: 100%;
-  height: 80vw;
-  position: relative;
-  overflow: hidden;
-}
-
-/* 各スライド（kv_areaをそのまま使用） */
-.kv_area {
-  position: absolute;
-  width: 45.10vw;
-  height: 36.11vw;
-  left: 50%;
-}
-
-/* スライドごとの位置（元の .kv_area01 ~ 03） */
-.kv_area01 {
-  top: 34.30vw;
-  margin-left: -56.74vw;
-}
-
-.kv_area02 {
-  top: 27.36vw;
-  margin-left: -7.40vw;
-}
-
-.kv_area03 {
-  top: 20.42vw;
-  margin-left: 42.06vw;
-}
-
-/* .kv_in = 各スライド内部 */
-.kv_in {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-/* 各画像の配置・レイアウト */
 .kv {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 1;             /* ← 常に表示 */
-  transition: none !important; /* ← 遅延アニメーション無効化 */
+	z-index: 10;
+	/* opacity: 0; */
+	transition: 1.0s ease-in-out;
+}
+
+.kv.pre {
+	z-index: 20;
+}
+
+.kv.show {
+	opacity: 1;
+
 }
 
 .kv .ph_area {
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
 }
 
 .kv .ph_out {
-  width: 45.10vw;
-  height: 100%;
+	position: relative;
+	height: 100%;
 }
 
 .kv .ph {
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center center;
+	position: absolute;
+	right: 0;
+	/* transform: translateX(-2.5%) scale(1.05); */
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: no-repeat center center;
+	background-size: cover;
+	transform: translateX(-5%) scale(1.1);
 }
 
-/* アニメーション（ph_areaの幅がスライドイン時に拡張） */
-/* .kv_area .kv_in .kv .ph_area {
-  width: 0%;
-  transition: 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+.kv.show .ph {
+	 /* width: 640px; */
+	/* transform: translateX(2.5%) scale(1.05); */
+	transform: translateX(5%) scale(1.1);
+	transition: 9.5s cubic-bezier(.61,.1,.88,.97);
+}
+
+.key {
+	pointer-events: none;
+}
+
+.key_main {
+	width: 100%;
+	height: 80vw;
+	position: relative;
+	overflow: hidden;
+
+}
+
+.kv_area {
+	position: absolute;
+	width: 45.10vw;
+	height: 36.11vw;
+	left: 50%;
+}
+
+.kv_in {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.kv_area01 {
+	top: 34.30vw;
+	margin-left: -56.74vw;
+}
+
+.kv_area02 {
+	top: 27.36vw;
+	margin-left: -7.40vw;
+}
+
+.kv_area03 {
+	top: 20.42vw;
+	margin-left: 42.06vw;
+}
+
+.kv {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.kv .ph_area {
+	width: 100%;
+	height: 100%;
+}
+
+.kv .ph_out {
+	height: 100%;
+	width: 45.10vw;
+}
+
+.kv .ph {
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center center;
+}
+
+/*loading key visual show*/
+
+.kv_area .kv_in .kv .ph_area {
+	width: 0%;
+	transition: 1.2s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .kv_area .kv_in .kv.show .ph_area {
-  width: 100%;
-  transition: none;
-}*/
-
-/* スライドイン時のマスク演出（白のフェード） */
-.kv_area .kv_in::before {
-  content: '';
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: #f3f2ed;
-  z-index: 100;
-  transition: 1.2s cubic-bezier(0.65, 0, 0.35, 1);
-  opacity: 0;
+	width: 100%;
 }
 
-.kv_area .kv_in.show::before {
-  opacity: 1;
+.kv_area .kv_in:before {
+	content: '';
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #f3f2ed;
+	z-index: 100;
+	transition: 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+	opacity: 0;
+
 }
 
-.kv_area.show .kv_in::before {
-  width: 0;
+.kv_area .kv_in.show:before {
+	opacity: 1;
 }
 
-/* ph_areaの幅を変えるアニメーションを完全に削除 */
-.kv_area .kv_in .kv .ph_area {
-  width: 100% !important;  /* 常にフル幅 */
-  transition: none !important;
+.kv_area.show .kv_in:before {
+	width: 0;
+
 }
-
-/* .kvのopacityは常に1 */
-.kv {
-  opacity: 1 !important;
-  transition: none !important;
-}
-
-/* .kv_in::before のマスクも非表示に */
-.kv_area .kv_in::before {
-  opacity: 0 !important;
-  pointer-events: none;
-  transition: none !important;
-}
-
-.kv_area01 { z-index: 3; }
-.kv_area02 { z-index: 2; }
-.kv_area03 { z-index: 1; }
-
 
 // セクション１ つづきを作る
 .home_lead {
@@ -1236,8 +1253,8 @@ a:visited {
 .btn.wide_15:hover::after {
 	animation: moveLine 1.5s linear infinite;
 }
-.btn.btn_s:hover::after {
-	animation: moveLine 1.5s linear infinite;
+.wide_5:hover .btn_s::after {
+  animation: moveLine 1.5s linear infinite;
 }
 .btn.btn_section4:hover::after {
 	animation: moveLine 1.5s linear infinite;
@@ -1538,12 +1555,7 @@ a:visited {
 		font-size: 1.3rem;
 	
 	}
-	
-	/*--------------------------------------
-		
-		navi
-		
-	--------------------------------------*/
+	// navi
 	
 	.toggle:before {
 	
@@ -1757,32 +1769,18 @@ a:visited {
 		width: 0;
 	
 	}
-	
-	
-	/*----------------------------------------------------
-	
-		loading
-		
-	----------------------------------------------------*/
-	
-	
-	
-	
-	
-	
+
+	//	loading
+
 	.load_anime {
 		left: 5.03vw;
 		top: 5.03vw;
 	}
-	
-	
-	
+
 	.loading img {
 		width: 15px;
 	}
-	
 
-		
 	//	copy
 	
 	.copy_standard .line {
@@ -2112,89 +2110,75 @@ a:visited {
 		width: 92%;
 		margin: 8vw auto 6vw auto;
 	}
-	
-	.magazine {
+
+
+
+
+	.section5 {
 		border-radius: 30px 30px 0 0;
 		padding: 0;
 	}
-	
-	.magazine .text {
-	
+	.section5_magazin{
+		width: 100%;
+	}
+	.section5_magazin_list {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid #6a6c62;
+    margin: auto;
+    padding: 0;
+		border-width: 100%;
+  }
+	.section5_magazin_text {
 		padding: 0 14vw;
 		width: 100%;
 		margin: 0 0 12vw 0;
 	}
 	
-	.magazine .title {
-	
+	.section5 .title {
 		padding: 0;
 		margin: 14vw auto 12vw auto;
-	
 	}
 	
-	.magazine .text p {
+	.section5 .text p {
 		margin-bottom: 2vw;
 	}
 	
-	.magazine_list {
+	.section5_magazin_list {
 		border-top: 1px solid #6a6c62;
 	}
 	
-	.magazine_list li {
+	.section5_magazin_list li {
 		width: 50%;
 		padding: 0 0;
 		border-bottom: 1px solid #6a6c62;
-		border-top: none
+		border-top: none;
+		box-sizing: border-box;
 	}
-	
-	.magazine_list li:nth-child(odd) {
+	.section5_magazin_list li:nth-child(odd) {
 		border-right: 1px solid #6a6c62;
-	
 	}
-	
-	.magazine_list li a {
+
+	.section5_magazin_list li a {
 		border-left: none;
 	}
-	
-	.magazine_list img {
-		width: 44%;
-		margin: 0 0 2vw 0;
-	}
-	
-	.magazine_list li .st {
+	.section5_magazin_list .magazin_list:nth-of-type(n+7),
+  .section5_magazin_list > li:nth-of-type(n+7) {
+    display: none;
+  }
+	.section5_magazin_list li .st {
 		font-size: 1.2rem;
-	
+	}
+  .section5_magazin_list li:nth-child(odd) {
+		border-right: 1px solid #6a6c62; /* 左列だけ右に縦線 */
 	}
 	
-	.school_bn .text {
-	
-		padding: 18vw 0 0 0;
-	
-		width: 100%;
+	.section5_magazin_list li:nth-child(even) {
+		border-right: none; /* 右列は線を出さない（2重防止） */
 	}
 	
-	.school_bn .text .title {
-		width: 180px;
-		margin: 0 auto 8vw auto;
-	}
-	
-	.school_bn .text p {
-		font-size: 1.3rem;
-		margin-bottom: 4vw;
-	}
-	
-	.school_bn .text .btn_area {
-		width: 80vw;
-	}
-	
-	.school_bn .text .btn {
-		text-align: center;
-	
-		
-		width: 60%;
-	
-	}
-	
+
+
 	.section_standard {
 		padding: 12vw 0;
 	}
@@ -2229,13 +2213,7 @@ a:visited {
 	}
 
 	//	ノック学校
-	.section6 .slider img {
-		width: 100%;
-		height: auto;
-		display: block;
-	}
-	.section6_text_btn{
-    text-align: center;
+	.section6_text_btn {
 		width: 60%;
 	}
 }

@@ -1,0 +1,17 @@
+# node_modules は Git 管理しない
+node_modules/
+
+# Vite のビルド成果物
+dist/
+
+# 環境変数ファイル（秘密情報）
+.env
+
+# ログファイル
+*.log
+
+# macOS のゴミファイル
+.DS_Store
+
+# VS Code の設定ファイル
+.vscode/
