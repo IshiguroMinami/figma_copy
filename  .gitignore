@@ -1,17 +1,15 @@
-# node_modules は Git 管理しない
+# Node modules
 node_modules/
 
-# Vite のビルド成果物
+# Build output
 dist/
 
-# 環境変数ファイル（秘密情報）
-.env
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# ログファイル
-*.log
-
-# macOS のゴミファイル
+# OS
 .DS_Store
 
-# VS Code の設定ファイル
-.vscode/
+# package-lock.json
