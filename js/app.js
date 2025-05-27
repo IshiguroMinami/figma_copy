@@ -1,7 +1,8 @@
 //　再読込み時画面最上部に
-$(function() {
+/*$(function() {
   $('html,body').animate({ scrollTop: 0 }, '1');
-  });
+  });*/
+
 
   //横幅をセット（サイドメニューなどがある時pckv,pckvmaxの値にサイドメニュー分の幅を-する）
   $(window).on('load', function() {
@@ -17,15 +18,76 @@ $(function() {
   $('.loading').addClass('hide');
   }, 3000 );
 
-  setTimeout( function() {
-  $('.menu_load').removeClass('menu_load');
-  }, 600 );
 
+  setTimeout( function() {
+  $('header .logo').addClass('show');
+  $('header .navi_area').addClass('show');
+  /*$('.icon_circle_fix').addClass('show');*/
+  }, 2800 );
+  
+  setTimeout( function() {
+    $('.menu_load').removeClass('menu_load');
+    }, 600 );
+
+    setTimeout( function() {
+    $('.home_key_copy .line:nth-child(1)').addClass('show');
+    }, 600 );
+
+    setTimeout( function() {
+    $('.home_key_copy .line:nth-child(1)').addClass('slide');
+    }, 800 );
+
+    setTimeout( function() {
+    $('.home_key_copy .line:nth-child(2)').addClass('show');
+    }, 1100 );
+
+    setTimeout( function() {
+    $('.home_key_copy .line:nth-child(2)').addClass('slide');
+    }, 1300 );
+
+    setTimeout( function() {
+      $('.kv_in').addClass('show');
+      }, 3500 );
+      
+      setTimeout( function() {
+      $('.kv_area').addClass('show');
+      }, 2000 );
+      
+
+
+
+/*ライン黒に*/
+setTimeout( function() {
+  $('.mount_area_key .mount').addClass('slide');
+  }, 1800 );
+  /*ライン黒に*/
+  
   setTimeout( function() {
   $('header .logo').addClass('show');
   $('header .navi_area').addClass('show');
   $('.icon_circle_fix').addClass('show');
   }, 2800 );
+  
+  
+  
+  /*ライン黒に
+  setTimeout( function() {
+  $('.mount_area01').addClass('hide');
+  }, 3000 );
+  */
+  
+  /*ライン黒に*/
+  setTimeout( function() {
+  $('.mount_area01').addClass('hide');
+  }, 1800 );
+  /*ライン黒に*/
+  
+  setTimeout( function() {
+  $('.mount_area02').addClass('show');
+  }, 3000 );
+  
+
+
   // キービジュアル
   const swiper = new Swiper(".mySwiper", {
     loop: true,
@@ -165,7 +227,7 @@ $(function() {
 
   });
 
-// ノックの学校　スライダー
+
 $(document).ready(function(){
   $('.slider').slick({
     arrows: false,
@@ -178,7 +240,7 @@ $(document).ready(function(){
     pauseOnHover: false,
     pauseOnFocus: false,
     centerMode: true,
-    centerPadding: '30%', // ← 通常は前後が見える
+    centerPadding: '30%',
     slidesToShow: 1,
 
     responsive: [
@@ -209,6 +271,38 @@ $(function(){
 $('body').addClass('navi_fix');
 });
 
+$(window).on('load', function() {
+  $('.copy_standard').each(function(){
+  var scroll = $(window).scrollTop();
+  var windowHeight = $(window).height();
+  var imgPos = $(this).offset().top;
+  
+  var windowWidth = $(window).width();
+  if (windowWidth > 769){
+    var showH = 200;
+  } else {
+    var showH = 100;
+  }
+  
+  
+  if (scroll > imgPos - windowHeight + showH){
+    $(this).find('.line:nth-child(1)').delay(400).queue(function(){
+        $(this).addClass('show');
+        $(this).addClass('slide');
+    })
+    
+    $(this).find('.line:nth-child(2)').delay(700).queue(function(){
+        $(this).addClass('show');
+        $(this).addClass('slide');
+    })
+  
+    $(this).find('.line:nth-child(3)').delay(1000).queue(function(){
+        $(this).addClass('show');
+        $(this).addClass('slide');
+    })
+  }
+  });
+  });
 
 $(function(){
 
@@ -275,12 +369,4 @@ $(function() {
   $('.matchHeight02').matchHeight();
 });
 
-// メニュー
 
-$(function(){
-$(".toggle").on("click", function() {
-$(this).toggleClass("active");
-$("header").toggleClass("normal");
-$("body").toggleClass("noscroll");
-});
-});
