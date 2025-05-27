@@ -1,7 +1,7 @@
 //　再読込み時画面最上部に
-/*$(function() {
+$(function() {
   $('html,body').animate({ scrollTop: 0 }, '1');
-  });*/
+  });
 
 
   //横幅をセット（サイドメニューなどがある時pckv,pckvmaxの値にサイドメニュー分の幅を-する）
@@ -9,6 +9,11 @@
 
   //loading完了後のアニメーションここから
   $('body.home').addClass('home_load');
+
+  setTimeout(function () {
+    $('.kv_area01 .kv01').addClass('slide-start');
+    console.log('slide-start added');
+  }, 100);
 
   setTimeout( function() {
   $('.load_anime').addClass('hide');
@@ -47,11 +52,11 @@
 
     setTimeout( function() {
       $('.kv_in').addClass('show');
-      }, 3500 );
+      }, 5000 );
       
       setTimeout( function() {
       $('.kv_area').addClass('show');
-      }, 2000 );
+      }, 5000 );
       
 
 
@@ -67,25 +72,7 @@ setTimeout( function() {
   $('header .navi_area').addClass('show');
   $('.icon_circle_fix').addClass('show');
   }, 2800 );
-  
-  
-  
-  /*ライン黒に
-  setTimeout( function() {
-  $('.mount_area01').addClass('hide');
-  }, 3000 );
-  */
-  
-  /*ライン黒に*/
-  setTimeout( function() {
-  $('.mount_area01').addClass('hide');
-  }, 1800 );
-  /*ライン黒に*/
-  
-  setTimeout( function() {
-  $('.mount_area02').addClass('show');
-  }, 3000 );
-  
+
 
 
   // キービジュアル
@@ -100,6 +87,20 @@ setTimeout( function() {
   });
   var time = -14;
   var slide = 0;
+
+  // 初期スライド（kv01）を読み込み後にすぐスライド開始
+setTimeout(function() {
+  $('.kv01').addClass('pre');
+}, 0);
+
+setTimeout(function() {
+  $('.kv01').addClass('show');
+}, 400);
+
+setTimeout(function() {
+  $('.kv01').addClass('end');
+}, 5500);
+
       setInterval(function(){
         if( 0 <= time && time << 600 ) {
           slide = 1;
@@ -368,5 +369,4 @@ $(function() {
 $(function() {
   $('.matchHeight02').matchHeight();
 });
-
 
