@@ -1,8 +1,7 @@
 //　再読込み時画面最上部に
-/*$(function() {
+$(function() {
   $('html,body').animate({ scrollTop: 0 }, '1');
   });
-*/
 
   // 横幅をセット（サイドメニューなどがある時pckv,pckvmaxの値にサイドメニュー分の幅を-する）
   $(window).on('load', function() {
@@ -78,8 +77,8 @@ setTimeout( function() {
       clickable: true,
     },
   });
-  var time = -14;
-  var slide = 0;
+  let time = -14;
+  let slide = 0;
 
   // 初期スライド（kv01）を読み込み後にすぐスライド開始
 setTimeout(function() {
@@ -154,9 +153,9 @@ setTimeout(function() {
   $(window).scroll(function (){
 
   $('.home_lead .img').each(function(){
-  var scroll = $(window).scrollTop();
-  var windowHeight = $(window).height();
-  var imgPos = $(this).offset().top;
+  const scroll = $(window).scrollTop();
+  const windowHeight = $(window).height();
+  const imgPos = $(this).offset().top;
   if (scroll > imgPos - windowHeight + 200){
 
   $(this).addClass('show');
@@ -182,10 +181,10 @@ setTimeout(function() {
   $(function(){
   $(window).scroll(function (){
   $('.mount').each(function(){
-  var scroll = $(window).scrollTop();
-  var windowHeight = $(window).height();
-  var windowWidth = $(window).width();
-  var windowWidth_x = windowWidth * 0.378;
+  const scroll = $(window).scrollTop();
+  const windowHeight = $(window).height();
+  const windowWidth = $(window).width();
+  const windowWidth_x = windowWidth * 0.378;
 
   // var imgPos = $(this).offset().top;
   if (scroll > windowWidth_x + 230){
@@ -204,10 +203,10 @@ setTimeout(function() {
   $(window).scroll(function (){
 
   $('#menu').each(function(){
-  var scroll = $(window).scrollTop();
-  var windowHeight = $(window).height();
-  var windowWidth = $(window).width();
-  var imgPos = $(this).offset().top;
+  const scroll = $(window).scrollTop();
+  const windowHeight = $(window).height();
+  const windowWidth = $(window).width();
+  const imgPos = $(this).offset().top;
   });
 
   });
@@ -245,7 +244,7 @@ $(document).ready(function(){
 
 //タブレットでPC画面のリサイズを表示
 $(function(){
-  var ua = navigator.userAgent;
+  const ua = navigator.userAgent;
   if((ua.indexOf('iPhone') > 0) || ua.indexOf('iPod') > 0 || (ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0)){
       $('head').prepend('<meta name="viewport" content="width=device-width,initial-scale=1">');
   } else {
@@ -260,11 +259,11 @@ $('body').addClass('navi_fix');
 
 $(window).on('load', function() {
   $('.copy_standard').each(function(){
-  var scroll = $(window).scrollTop();
-  var windowHeight = $(window).height();
-  var imgPos = $(this).offset().top;
+  const scroll = $(window).scrollTop();
+  const windowHeight = $(window).height();
+  const imgPos = $(this).offset().top;
   
-  var windowWidth = $(window).width();
+  const windowWidth = $(window).width();
   if (windowWidth > 769){
     var showH = 200;
   } else {
@@ -296,11 +295,11 @@ $(function(){
 $(window).scroll(function (){
 
 $('.copy_standard').each(function(){
-var scroll = $(window).scrollTop();
-var windowHeight = $(window).height();
-var imgPos = $(this).offset().top;
+const scroll = $(window).scrollTop();
+const windowHeight = $(window).height();
+const imgPos = $(this).offset().top;
 
-var windowWidth = $(window).width();
+const windowWidth = $(window).width();
 if (windowWidth > 769){
 var showH = 200;
 } else {
@@ -340,10 +339,10 @@ $(this).find('.line:nth-child(3)').delay(900).queue(function(){
 
 $(function(){
 $('a[href^="#"]').click(function(){
-  var speed = 500;
-  var href= $(this).attr("href");
-  var target = $(href == "#" || href == "" ? 'html' : href);
-  var position = target.offset().top;
+  const speed = 500;
+  const href= $(this).attr("href");
+  const target = $(href == "#" || href == "" ? 'html' : href);
+  const position = target.offset().top;
   $("html, body").animate({scrollTop:position}, speed, "swing");
   return false;
 });
