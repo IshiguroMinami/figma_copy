@@ -91,7 +91,7 @@ setTimeout(function() {
 
 setTimeout(function() {
   $('.kv01').addClass('end');
-}, 5500);
+}, 3000);
 
       setInterval(function(){
         if( 0 <= time && time << 600 ) {
