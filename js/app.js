@@ -1,10 +1,8 @@
 $(function () {
-  // スクロールをページ最上部に
+  // ページ最上部にスクロール
   $('html, body').scrollTop(0);
 
-
   // ページアニメーション
-
   function initPageAnimations() {
     if (!$('body').hasClass('home')) return;
 
@@ -23,9 +21,7 @@ $(function () {
     $('header .navi_area').addClass('show');
   }
 
-
-  // コピー
-
+  // スクロールに応じたアニメーション処理
   function initScrollAnimations() {
     $(window).on('scroll', function () {
       const scroll = $(window).scrollTop();
@@ -71,9 +67,7 @@ $(function () {
     });
   }
 
-
-  // KV
-
+  // KV スイッチ処理
   function initKvSimpleSwitch() {
     const interval = 5000;
 
@@ -95,8 +89,7 @@ $(function () {
     });
   }
 
-  // slickスライダー
-
+  // slick スライダー初期化
   function initSlider() {
     $('.slider').slick({
       arrows: false,
@@ -124,9 +117,7 @@ $(function () {
     });
   }
 
-
-  // viewport
-
+  // ビューポート設定
   function setViewport() {
     const ua = navigator.userAgent;
     const isMobile = ua.match(/iPhone|iPod|Android.+Mobile/);
@@ -136,16 +127,12 @@ $(function () {
     $('head').prepend(metaTag);
   }
 
-
-  // ナビゲーション
-
+  // ナビゲーション固定
   function fixNavigation() {
     $('body').addClass('navi_fix');
   }
 
-
-  // スクロール
-
+  // スムーススクロール
   function initSmoothScroll() {
     $('a[href^="#"]').on('click', function (e) {
       e.preventDefault();
@@ -157,8 +144,7 @@ $(function () {
     });
   }
 
-  // toggle
-
+  // メニューのトグル切替
   function initToggleMenu() {
     $(".toggle").on("click", function () {
       const isActive = $(this).hasClass("active");
@@ -169,9 +155,7 @@ $(function () {
     });
   }
 
-
-  // モーダル
-
+  // モーダル処理
   function initModal() {
     $(document).on('click', '.modal_open', function (e) {
       e.stopPropagation();
@@ -210,7 +194,7 @@ $(function () {
     });
   }
 
-
+  // 初回実行
   initPageAnimations();
   initScrollAnimations();
   initSlider();
