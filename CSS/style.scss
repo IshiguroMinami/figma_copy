@@ -7,6 +7,7 @@ $white-color: #fff;
 $light-gray: #ecebe6;
 $dark-gray: #2b2a29;
 $highlight-yellow: #fff600;
+$wood-ash: #6a6c62;
 
 // 共通
 * {
@@ -1285,13 +1286,13 @@ a:visited {
 .magazin_list a {
 	display: block;
   padding: 40px 0 20px 0;
-  border-left: 1px solid #6a6c62;
+  border-left: 1px solid $wood-ash;
 	align-items: center;
 }
 .magazin_list span {
 	display: block;
   padding: 40px 0 20px 0;
-  border-left: 1px solid #6a6c62;
+  border-left: 1px solid $wood-ash;
 	align-items: center;
 }
 
@@ -1310,7 +1311,7 @@ a:visited {
 }
 
 .section5_magazin_list li:nth-child(n+5) {
-  border-top: 1px solid #6a6c62;
+  border-top: 1px solid $wood-ash;
 }
 
 .magazin_list_hover img:hover {
@@ -2281,10 +2282,9 @@ a:visited {
 	.section5_magazin_list {
     display: flex;
     flex-wrap: wrap;
-    border-top: 1px solid #6a6c62;
+    border-top: 1px solid $wood-ash;
     margin: auto;
     padding: 0;
-		border-width: 100%;
 		width: 100%;
   }
 	.section5_magazin_text {
@@ -2303,13 +2303,13 @@ a:visited {
 	}
 	
 	.section5_magazin_list {
-		border-top: 1px solid #6a6c62;
+		border-top: 1px solid $wood-ash;
 	}
 	
 	.section5_magazin_list li {
 		width: 50%;
 		padding: 0;
-		border-top: 1px solid #6a6c62;   /* 上線だけにする */
+		border-top: 1px solid $wood-ash;   /* 上線だけにする */
 		border-bottom: none;             /* 下線は消す */
 		box-sizing: border-box;
 	}
@@ -2319,7 +2319,7 @@ a:visited {
 		border-top: none;
 	}
 	.section5_magazin_list li:nth-child(odd) {
-		border-right: 1px solid #6a6c62;
+		border-right: 1px solid $wood-ash;
 	}
 
 	.section5_magazin_list li a {
@@ -2333,7 +2333,7 @@ a:visited {
 		font-size: 1.2rem;
 	}
   .section5_magazin_list li:nth-child(odd) {
-		border-right: 1px solid #6a6c62; /* 左列だけ右に縦線 */
+		border-right: 1px solid $wood-ash; /* 左列だけ右に縦線 */
 	}
 	
 	.section5_magazin_list li:nth-child(even) {
